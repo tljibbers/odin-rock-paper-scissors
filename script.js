@@ -50,8 +50,7 @@ body.appendChild(computerScoreText);
 humanScore = 0;
 computerScore = 0;
 
-humanScoreText.innerHTML = humanScore;
-computerScoreText.innerHTML = computerScore;
+
 
 function playerChoice(player)
 {
@@ -90,36 +89,50 @@ function game(player, computer)
         console.log("You picked Rock and the Computer picked Paper! You lost this round.");
         winText.innerText = "You picked Rock and the Computer picked Paper! You lost this round.";
         computerScore++;
+        computerScoreText.innerHTML = computerScore;
     }
     else if(player == "Scissors" && computer == "Rock"){
         console.log("You picked Scissors and the Computer picked Rock! You lost this round.");
         winText.innerText = "You picked Scissors and the Computer picked Rock! You lost this round.";
         computerScore++; 
+        computerScoreText.innerHTML = computerScore;
     }
     else if(player == "Paper" && computer == "Scissors") {
         console.log("You picked Paper and the Computer picked Scissors! You lost this round.");
         winText.innerText = "You picked Paper and the Computer picked Scissors! You lost this round.";
-        computerScore++;    
+        computerScore++; 
+        computerScoreText.innerHTML = computerScore;   
     }
     else if(player == "Rock" && computer == "Scissors") {
         console.log("You picked Rock and the Computer picked Scissors! You won this round.");
         winText.innerText = "You picked Rock and the Computer picked Scissors! You won this round.";
-        humanScore++;    
+        humanScore++;
+        humanScoreText.innerHTML = humanScore;    
     }
     else if(player == "Paper" && computer == "Rock") {
         console.log("You picked Paper and the Computer picked Rock! You won this round.");
         winText.innerText = "You picked Paper and the Computer picked Rock! You won this round.";
-        humanScore++;      
+        humanScore++;    
+        humanScoreText.innerHTML = humanScore;  
     }
     else if(player == "Scissors" && computer == "Paper") {
         console.log("You picked Scissors and the Computer picked Paper! You won this round.");
         winText.innerText = "You picked Scissors and the Computer picked Paper! You won this round.";
-        humanScore++;       
+        humanScore++;   
+        humanScoreText.innerHTML = humanScore;    
     }
     else if(player == computer)
     {
         console.log("Tie round");
         winText.innerText = "Tie round";
+    }
+    if(humanScore % 5 == 0)
+    {
+        winText.innerText = "You won!"
+    }
+    if(computerScore % 5 == 0)
+    {
+        winText.innerText = "You Lost!"
     }
 }
 
